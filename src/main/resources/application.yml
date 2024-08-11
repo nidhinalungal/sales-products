@@ -1,0 +1,27 @@
+security:
+  oauth2:
+    client:
+      clientId: myClient
+      clientSecret: myClientSecret
+      authorized-grant-types: authorization_code,refresh_token,password,client_credentials
+      scope: spark_support
+      access-token-validity-seconds: 90000
+      refresh-token-validity-seconds: 2700
+    resource.jwt:
+      key-store: keystore.jks
+      key-store-password: mystorepass
+      key-alias: mytestkey
+
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/authtest?createDatabaseIfNotExist=true
+    username: root
+    password: department
+  jpa:
+#    generate-ddl: true
+    hibernate:
+      ddl-auto: create
